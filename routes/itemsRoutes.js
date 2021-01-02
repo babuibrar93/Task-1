@@ -39,10 +39,12 @@ router.get('/edit/:id', async function(req, res, next) {
 
   router.post('/update/:id', async function(req, res, next) {
     let item = await Items.findById(req.params.id);
-    item.name = req.body.name;
-    item.cid = req.body.cid;
-    item.cdur = req.body.cdur;
-    item.cfee = req.body.cfee;
+    item.productid = req.body.productid;
+    item.prName = req.body.prName;
+    item.prCatagory = req.body.prCatagory;
+    item.prPrice = req.body.prPrice;
+    item.prDetails = req.body.prDetails;
+    item.prImage = req.body.prImage;
     await item.save();
 
     res.redirect("/itemsRoutes");
